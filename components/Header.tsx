@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
+// import { Button } from "@/components/ui/button";
 import Logo from "./Logo";
 
 const navLinks = [
@@ -15,6 +16,7 @@ const navLinks = [
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60">
@@ -27,16 +29,20 @@ export function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+              className={`text-sm font-medium transition-colors hover:text-foreground ${
+                pathname === link.href
+                  ? "text-foreground font-semibold"
+                  : "text-muted-foreground"
+              }`}
             >
               {link.label}
             </Link>
           ))}
-          <Link href="/admin">
+          {/* <Link href="/admin">
             <Button variant="outline" size="sm">
               Admin
             </Button>
-          </Link>
+          </Link> */}
         </nav>
 
         {/* Mobile Menu Button */}
@@ -46,9 +52,9 @@ export function Header() {
           aria-label="Toggle menu"
         >
           {mobileMenuOpen ? (
-            <X className="h-6 w-6 text-foreground" />
+            <X className="h-6 w-6" />
           ) : (
-            <Menu className="h-6 w-6 text-foreground" />
+            <Menu className="h-6 w-6" />
           )}
         </button>
       </div>
@@ -61,17 +67,21 @@ export function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="py-3 text-base font-medium text-muted-foreground transition-colors hover:text-foreground"
+                className={`py-3 text-base font-medium transition-colors hover:text-foreground ${
+                  pathname === link.href
+                    ? "text-foreground font-semibold"
+                    : "text-muted-foreground"
+                }`}
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {link.label}
               </Link>
             ))}
-            <Link href="/admin" onClick={() => setMobileMenuOpen(false)}>
+            {/* <Link href="/admin" onClick={() => setMobileMenuOpen(false)}>
               <Button variant="outline" size="sm" className="mt-2 w-full">
                 Admin
               </Button>
-            </Link>
+            </Link> */}
           </nav>
         </div>
       )}

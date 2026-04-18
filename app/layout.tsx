@@ -31,7 +31,8 @@ export const metadata: Metadata = {
     title: "IKW Ventures | Genuine Volvo Spare Parts",
     description:
       "Your trusted source for genuine Volvo spare parts. Quality engine parts, brake systems, suspension components and more.",
-    url: process.env.NEXT_PUBLIC_APP_URL ?? "https://ikwellventures.vercel.app/",
+    url:
+      process.env.NEXT_PUBLIC_APP_URL ?? "https://ikwellventures.vercel.app/",
     siteName: "IKW Ventures",
     images: [
       {
@@ -41,13 +42,17 @@ export const metadata: Metadata = {
         alt: "IKW Ventures Open Graph Image",
       },
     ],
-    locale: "Ng_en",
+    locale: "en_NG",
     type: "website",
   },
+  alternates: {
+  canonical: process.env.NEXT_PUBLIC_APP_URL,
+},
   twitter: {
     card: "summary_large_image",
     title: "IKW Ventures",
-    description: "Your trusted source for genuine Volvo spare parts. Quality engine parts, brake systems, suspension components and more.",
+    description:
+      "Your trusted source for genuine Volvo spare parts. Quality engine parts, brake systems, suspension components and more.",
     images: ["/og-image.png"],
   },
 };

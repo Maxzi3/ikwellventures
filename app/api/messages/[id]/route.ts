@@ -3,7 +3,7 @@ import { connectToDB } from "@/lib/mongodb";
 import Message from "@/models/Message";
 import { requireAdmin } from "@/lib/auth";
 
-type RouteContext = { params: { id: string } };
+type RouteContext = { params: Promise<{ id: string }> }; 
 
 /** GET /api/messages/[id] — Admin only. Auto-marks as read. */
 export async function GET(request: NextRequest, { params }: RouteContext) {
@@ -11,10 +11,11 @@ export async function GET(request: NextRequest, { params }: RouteContext) {
   if (auth instanceof NextResponse) return auth;
 
   try {
+    const { id } = await params; 
     await connectToDB();
 
     const message = await Message.findByIdAndUpdate(
-      params.id,
+      id,
       { $set: { read: true } },
       { new: true },
     );
@@ -39,6 +40,7 @@ export async function PATCH(request: NextRequest, { params }: RouteContext) {
   if (auth instanceof NextResponse) return auth;
 
   try {
+    const { id } = await params; 
     await connectToDB();
 
     const body = (await request.json()) as { read?: unknown };
@@ -51,7 +53,7 @@ export async function PATCH(request: NextRequest, { params }: RouteContext) {
     }
 
     const message = await Message.findByIdAndUpdate(
-      params.id,
+      id,
       { $set: { read: body.read } },
       { new: true },
     );
@@ -76,9 +78,10 @@ export async function DELETE(request: NextRequest, { params }: RouteContext) {
   if (auth instanceof NextResponse) return auth;
 
   try {
+    const { id } = await params;
     await connectToDB();
 
-    const message = await Message.findByIdAndDelete(params.id);
+    const message = await Message.findByIdAndDelete(id);
 
     if (!message) {
       return NextResponse.json({ error: "Message not found" }, { status: 404 });

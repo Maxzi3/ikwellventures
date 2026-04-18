@@ -12,20 +12,27 @@ export async function POST(request: NextRequest) {
     const body = (await request.json()) as {
       name?: string;
       email?: string;
+      phone?: string;
       subject?: string;
       message?: string;
     };
 
-    const { name, email, subject, message } = body;
+    const { name, email, phone, subject, message } = body;
 
-    if (!name?.trim() || !email?.trim() || !message?.trim()) {
+    if (!name?.trim() || !email?.trim() || !phone?.trim() || !message?.trim()) {
       return NextResponse.json(
-        { error: "name, email, and message are required" },
+        { error: "name, email, phone, and message are required" },
         { status: 400 },
       );
     }
 
-    const newMessage = await Message.create({ name, email, subject, message });
+    const newMessage = await Message.create({
+      name,
+      email,
+      phone,
+      subject,
+      message,
+    });
     return NextResponse.json(
       { message: "Message sent successfully", data: newMessage },
       { status: 201 },

@@ -3,6 +3,7 @@ import mongoose, { Document, Model, Schema } from "mongoose";
 export interface IMessage extends Document {
   name: string;
   email: string;
+  phone?: string;
   subject: string;
   message: string;
   read: boolean;
@@ -22,6 +23,11 @@ const MessageSchema = new Schema<IMessage>(
       required: [true, "Email is required"],
       trim: true,
       lowercase: true,
+    },
+    phone: {
+      type: String,
+      trim: true,
+      default: "",
     },
     subject: {
       type: String,

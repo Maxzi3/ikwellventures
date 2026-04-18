@@ -5,15 +5,15 @@ import { requireAdmin } from "@/lib/auth";
 import Category from "@/models/Category";
 import Product from "@/models/Product";
 
-
-type RouteContext = { params: { id: string } };
+type RouteContext = { params: Promise<{ id: string }> };
 
 /** GET /api/categories/[id] — Public */
 export async function GET(_request: NextRequest, { params }: RouteContext) {
   try {
+    const { id } = await params;
     await connectToDB();
 
-    const category = await Category.findById(params.id);
+    const category = await Category.findById(id);
     if (!category) {
       return NextResponse.json(
         { error: "Category not found" },
@@ -37,6 +37,7 @@ export async function PUT(request: NextRequest, { params }: RouteContext) {
   if (auth instanceof NextResponse) return auth;
 
   try {
+    const { id } = await params;
     await connectToDB();
 
     const body = (await request.json()) as {
@@ -44,7 +45,6 @@ export async function PUT(request: NextRequest, { params }: RouteContext) {
       description?: string;
     };
 
-    // Regenerate slug if name is being updated
     const updates: Record<string, string> = {};
     if (body.name) {
       updates.name = body.name.trim();
@@ -59,7 +59,7 @@ export async function PUT(request: NextRequest, { params }: RouteContext) {
     }
 
     const category = await Category.findByIdAndUpdate(
-      params.id,
+      id,
       { $set: updates },
       { new: true, runValidators: true },
     );
@@ -93,9 +93,10 @@ export async function DELETE(request: NextRequest, { params }: RouteContext) {
   if (auth instanceof NextResponse) return auth;
 
   try {
+    const { id } = await params;
     await connectToDB();
 
-    const category = await Category.findByIdAndDelete(params.id);
+    const category = await Category.findByIdAndDelete(id);
     if (!category) {
       return NextResponse.json(
         { error: "Category not found" },
@@ -103,11 +104,7 @@ export async function DELETE(request: NextRequest, { params }: RouteContext) {
       );
     }
 
-    // Unlink this category from all products that referenced it
-    await Product.updateMany(
-      { category: params.id },
-      { $set: { category: null } },
-    );
+    await Product.updateMany({ category: id }, { $set: { category: null } });
 
     return NextResponse.json(
       { message: "Category deleted and unlinked from products" },

@@ -1,5 +1,5 @@
 import { AdminSidebar } from "@/components/Admin/sidebar";
-// import { redirect } from "next/navigation";
+
 
 
 export default async function AdminDashboardLayout({
@@ -7,11 +7,7 @@ export default async function AdminDashboardLayout({
 }: {
   children: React.ReactNode;
 }) {
-//   const authenticated = await isAuthenticated();
 
-//   if (!authenticated) {
-//     redirect("/admin/login");
-//   }
 
   return (
     <div className="flex min-h-screen bg-muted">

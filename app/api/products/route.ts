@@ -21,7 +21,19 @@ export async function GET(request: NextRequest) {
     );
 
     const filter: Record<string, unknown> = {};
-    if (category) filter.category = category;
+    if (category) {
+      // Try to find by slug first (for footer links), fall back to treating it as an ID
+      const mongoose = (await import("mongoose")).default;
+      if (mongoose.isValidObjectId(category)) {
+        filter.category = category;
+      } else {
+        // It's a slug — look up the category document
+        const Category = (await import("@/models/Category")).default;
+        const categoryDoc = await Category.findOne({ slug: category });
+        if (categoryDoc) filter.category = categoryDoc._id;
+        else filter.category = null; // no match, return empty
+      }
+    }
     if (featured === "true") filter.featured = true;
     if (search) {
       filter.$or = [
