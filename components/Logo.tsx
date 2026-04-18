@@ -8,7 +8,7 @@ const Logo = () => {
     <Link href="/">
       <div className="flex justify-between items-center h-16">
         <Image
-          src="/ikwel-logo.png"
+          src="/Ikwel-logo.png"
           alt="logo"
           width={100}
           height={100}
