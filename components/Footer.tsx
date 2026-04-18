@@ -56,12 +56,12 @@ export function Footer() {
                   href="/products?category=engine"
                   className="text-sm text-muted-foreground transition-colors hover:text-foreground"
                 >
-                  Engine Parts
+                  Engine 
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/products?category=brake"
+                  href="/products?category=brake-system"
                   className="text-sm text-muted-foreground transition-colors hover:text-foreground"
                 >
                   Brake System

@@ -115,7 +115,7 @@ export default function HomePage() {
             alt="Volvo Car"
             width={600}
             height={400}
-            className="absolute right-0 top-1/2 h-auto w-full max-w-md -translate-y-1/2 opacity-5 sm:opacity-100"
+            className="absolute right-0 top-1/2 h-auto w-full max-w-md -translate-y-1/2 opacity-15 sm:opacity-100"
           />
         </section>
 

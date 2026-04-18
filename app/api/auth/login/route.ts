@@ -54,12 +54,12 @@ export async function POST(request: NextRequest) {
     }
 
     const isValidPassword = await bcrypt.compare(password, ADMIN_PASSWORD_HASH);
-    console.log({
-      inputPassword: password,
-      hash: ADMIN_PASSWORD_HASH,
-      isValidPassword,
-    });
-    console.log("ENV HASH:", process.env.ADMIN_PASSWORD_HASH);
+    // console.log({
+    //   inputPassword: password,
+    //   hash: ADMIN_PASSWORD_HASH,
+    //   isValidPassword,
+    // });
+    // console.log("ENV HASH:", process.env.ADMIN_PASSWORD_HASH);
 
     if (email !== ADMIN_EMAIL || !isValidPassword) {
       await new Promise((r) => setTimeout(r, 500));

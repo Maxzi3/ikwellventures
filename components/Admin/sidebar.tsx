@@ -15,7 +15,6 @@ import {
   FolderOpen,
 } from "lucide-react";
 import { useState } from "react";
-import Logo from "../Logo";
 import Image from "next/image";
 
 const navItems = [
@@ -77,7 +76,7 @@ export function AdminSidebar() {
             <Link href="/admin" className="flex items-center flex-col gap-3">
               <div className="flex justify-between items-center h-16 bg-muted rounded-lg p-1">
                 <Image
-                  src="/ikwel-logo.png"
+                  src="/Ikwel-logo.png"
                   alt="logo"
                   width={100}
                   height={100}
