@@ -26,7 +26,7 @@ const AboutCeoSection = () => {
               About the Founder
             </h2>
             <h1 className="text-4xl font-extrabold text-gray-900 mb-6">
-              IK Well
+              IYKE WELL
             </h1>
             <p className="text-xl font-semibold text-gray-700 mb-4">
               Founder & CEO, IYKewell Ventures
@@ -35,7 +35,7 @@ const AboutCeoSection = () => {
               <p>
                 With over 20 years of dedicated experience, IK (Ikechukwu)
                 brings a wealth of expertise and a proven track record to
-                IYKewell Ventures. As a visionary leader, he has guided the
+                IYKE WELL Ventures. As a visionary leader, he has guided the
                 company to new heights, establishing it as a cornerstone of
                 excellence and innovation.
               </p>

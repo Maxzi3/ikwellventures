@@ -19,10 +19,14 @@ export const metadata: Metadata = {
     "Your trusted source for genuine Volvo spare parts. Quality engine parts, brake systems, suspension components and more.",
   keywords: [
     "Volvo parts",
-    "spare parts",
-    "car parts",
-    "genuine Volvo",
-    "automotive",
+    "volvo parts lagos",
+    "genuine volvo spare parts",
+    "mushin volvo parts",
+    "ladipo volvo parts",
+    "volvo engine parts nigeria",
+    "volvo brake parts lagos",
+    "volvo suspension parts",
+    "volvo car parts mushin",
   ],
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_APP_URL ?? "https://ikwellventures.vercel.app/",
@@ -46,8 +50,8 @@ export const metadata: Metadata = {
     type: "website",
   },
   alternates: {
-  canonical: process.env.NEXT_PUBLIC_APP_URL,
-},
+    canonical: process.env.NEXT_PUBLIC_APP_URL,
+  },
   twitter: {
     card: "summary_large_image",
     title: "IKW Ventures",

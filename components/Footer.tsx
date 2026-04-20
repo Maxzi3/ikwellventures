@@ -81,7 +81,7 @@ export function Footer() {
 
         <div className="mt-12 border-t border-border pt-8">
           <p className="text-center text-sm text-muted-foreground">
-            {new Date().getFullYear()} IKW Ventures. All rights reserved.
+            {new Date().getFullYear()} IYKE WELL Ventures. All rights reserved.
           </p>
         </div>
       </div>

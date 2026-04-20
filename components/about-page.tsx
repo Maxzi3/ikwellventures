@@ -42,7 +42,7 @@ export default function AboutPage() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="max-w-2xl">
               <h1 className="text-3xl font-bold tracking-tight text-primary-foreground sm:text-4xl lg:text-5xl">
-                About IKW Ventures
+                About IYKE WELL Ventures
               </h1>
               <p className="mt-6 text-lg leading-relaxed text-primary-foreground/80">
                 Your trusted partner for genuine Volvo spare parts and
@@ -62,7 +62,7 @@ export default function AboutPage() {
                 </h2>
                 <div className="mt-6 space-y-4 text-muted-foreground">
                   <p className="leading-relaxed">
-                    At IKW Ventures, we specialize in providing genuine Volvo
+                    At IYKE WELL Ventures, we specialize in providing genuine Volvo
                     spare parts to vehicle owners who demand the best for their
                     cars. Our commitment to quality and reliability has made us
                     a trusted name in the automotive parts industry.

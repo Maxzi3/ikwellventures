@@ -47,7 +47,7 @@ const features = [
     icon: Wrench,
     title: "Expert Support",
     description:
-      "Our team of automotive experts is here to help you find the right parts.",
+      "Our team of automotive experts (Mechanics) is here to help you find the right parts.",
   },
 ];
 
@@ -89,7 +89,7 @@ export default function HomePage() {
               </h1>
               <p className="mt-6 text-lg leading-relaxed text-primary-foreground/80">
                 Your trusted source for genuine Volvo spare parts. We provide
-                reliable automotive components to keep your vehicle running at
+                reliable automotive components and Mechanic to keep your vehicle running at
                 its best.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
@@ -266,7 +266,7 @@ export default function HomePage() {
             <div className="rounded-2xl bg-primary px-6 py-16 sm:px-12 sm:py-20">
               <div className="mx-auto max-w-2xl text-center">
                 <h2 className="text-2xl font-bold tracking-tight text-primary-foreground sm:text-3xl">
-                  Need help finding the right part?
+                  Need help finding the right part or Mechanic?
                 </h2>
                 <p className="mt-4 text-lg text-primary-foreground/80">
                   Contact our team of experts and we will help you find exactly
