@@ -45,13 +45,14 @@ export default function AdminDashboardPage() {
         const productsData = await productsRes.json();
         const messagesData = await messagesRes.json();
         const products: IProduct[] = productsData.products ?? [];
+        const total = productsData.total ?? 0;
 
         setStats({
-          totalProducts: products.length,
-          inStockProducts: products.filter((p) => p.inStock).length,
-          outOfStockProducts: products.filter((p) => !p.inStock).length,
+          totalProducts: total,
+          inStockProducts: productsData.inStockCount,
+          outOfStockProducts: productsData.outOfStockCount,
           recentProducts: products.slice(0, 5),
-          unreadMessages: messagesData.messages?.length ?? 0, // ← add this
+          unreadMessages: messagesData.messages?.length ?? 0,
         });
       } catch (err) {
         console.error("Failed to load dashboard stats:", err);

@@ -6,17 +6,39 @@ import Category from "@/models/Category";
 
 
 /** GET /api/categories — Public */
+/** GET /api/categories */
 export async function GET() {
   try {
     await connectToDB();
-    const categories = await Category.find().sort({ name: 1 });
+    
+    const categories = await Category.aggregate([
+      {
+        $lookup: {
+          from: "products",           // Make sure this matches your Product collection name
+          localField: "_id",
+          foreignField: "category",   // Adjust if your Product field is named differently (e.g. categoryId)
+          as: "products"
+        }
+      },
+      {
+        $addFields: {
+          productCount: { $size: "$products" }
+        }
+      },
+      {
+        $sort: { name: 1 }
+      },
+      {
+        $project: {
+          products: 0   // optional: remove the array
+        }
+      }
+    ]);
+
     return NextResponse.json({ categories }, { status: 200 });
   } catch (error) {
     console.error("GET /api/categories error:", error);
-    return NextResponse.json(
-      { error: "Internal server error" },
-      { status: 500 },
-    );
+    return NextResponse.json({ error: "Internal server error" }, { status: 500 });
   }
 }
 

@@ -29,7 +29,7 @@ const AboutCeoSection = () => {
               IYKE WELL
             </h1>
             <p className="text-xl font-semibold text-gray-700 mb-4">
-              Founder & CEO, IYKewell Ventures
+              Founder & CEO, IYKE-Well Ventures
             </p>
             <div className="space-y-4 text-gray-600 leading-relaxed">
               <p>

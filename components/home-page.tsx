@@ -58,7 +58,7 @@ export default function HomePage() {
   useEffect(() => {
     async function fetchFeatured() {
       try {
-        const res = await fetch("/api/products?featured=true&limit=4");
+        const res = await fetch("/api/products?featured=true&limit=8");
         if (!res.ok) throw new Error("Failed to fetch");
         const data = await res.json();
         setFeaturedProducts(data.products ?? []);
@@ -89,8 +89,8 @@ export default function HomePage() {
               </h1>
               <p className="mt-6 text-lg leading-relaxed text-primary-foreground/80">
                 Your trusted source for genuine Volvo spare parts. We provide
-                reliable automotive components and Mechanic to keep your vehicle running at
-                its best.
+                reliable automotive components and Mechanic to keep your vehicle
+                running at its best.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <Link href="/products">
@@ -197,7 +197,7 @@ export default function HomePage() {
                     key={product._id}
                     className="group overflow-hidden border-border bg-card transition-shadow hover:shadow-lg"
                   >
-                    <div className="aspect-square overflow-hidden bg-muted">
+                    <div className="aspect-4/3 overflow-hidden bg-muted">
                       {product.image ? (
                         <Image
                           src={product.image}

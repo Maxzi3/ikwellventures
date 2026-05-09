@@ -40,19 +40,26 @@ export async function GET(request: NextRequest) {
       ];
     }
 
-    const [products, total] = await Promise.all([
+
+    const [products, total, inStockCount, outOfStockCount] = await Promise.all([
       Product.find(filter)
         .populate("category", "name slug")
         .sort({ createdAt: -1 })
         .skip((page - 1) * limit)
         .limit(limit),
+
       Product.countDocuments(filter),
+
+      Product.countDocuments({ ...filter, inStock: true }),
+      Product.countDocuments({ ...filter, inStock: false }),
     ]);
 
     return NextResponse.json({
       products,
       total,
       page,
+      inStockCount,
+      outOfStockCount,
       limit,
       totalPages: Math.ceil(total / limit),
     });

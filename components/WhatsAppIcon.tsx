@@ -17,7 +17,7 @@ const WhatsAppIcon = () => {
       className="fixed bottom-20 right-6 cursor-pointer z-50"
     >
       <div className="bg-white rounded-full shadow-lg p-2 hover:scale-110 transition-transform">
-        <MessageCircle className="h-10 w-10 text-green-500 animate-bounce" />
+        <MessageCircle className="h-10 w-10 text-primary animate-bounce" />
       </div>
     </div>
   );

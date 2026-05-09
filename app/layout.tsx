@@ -4,6 +4,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import WhatsAppIcon from "@/components/WhatsAppIcon";
 import { Toaster } from "@/components/ui/sonner";
+import WhatsAppPopup from "@/components/WhatsAppPopup";
 
 
 const outfit = Outfit({
@@ -76,7 +77,8 @@ export default function RootLayout({
       className={cn("bg-background", "font-sans", outfit.variable)}
     >
       <body className="font-sans antialiased">
-        {children} <WhatsAppIcon /> <Toaster position="top-right" />
+        {children} <WhatsAppPopup /> <WhatsAppIcon />{" "}
+        <Toaster position="top-right" />
       </body>
     </html>
   );

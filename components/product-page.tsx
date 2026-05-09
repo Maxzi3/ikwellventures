@@ -202,9 +202,11 @@ export default function ProductsPage() {
               {/* Products Grid + Pagination */}
               <div className="flex-1">
                 <p className="mb-6 text-sm text-muted-foreground">
-                  {loading
-                    ? <Spinner/>
-                    : `Showing ${products.length} of ${total} products`}
+                  {loading ? (
+                    <Spinner />
+                  ) : (
+                    `Showing ${products.length} of ${total} products`
+                  )}
                 </p>
 
                 {error ? (
@@ -241,19 +243,20 @@ export default function ProductsPage() {
                   <div className="text-center py-16">No products found</div>
                 ) : (
                   <>
-                    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3">
+                    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4">
                       {products.map((product) => (
                         <Card
                           key={product._id}
-                          className="group overflow-hidden border-border bg-card transition-shadow hover:shadow-lg"
+                          className="group overflow-hidden border-border bg-card transition-shadow hover:shadow-lg "
                         >
-                          <div className="aspect-square overflow-hidden bg-muted">
+                          <div className="aspect-4/3 overflow-hidden bg-muted">
                             {product.image ? (
                               <Image
                                 src={product.image}
                                 alt={product.name}
                                 width={400}
                                 height={400}
+                                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                                 className="h-full w-full object-cover transition-transform group-hover:scale-105"
                               />
                             ) : (

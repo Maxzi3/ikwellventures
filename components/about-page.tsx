@@ -139,7 +139,7 @@ export default function AboutPage() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-2 gap-8 lg:grid-cols-4">
               <div className="text-center">
-                <p className="text-4xl font-bold text-primary">500+</p>
+                <p className="text-4xl font-bold text-primary">50+</p>
                 <p className="mt-2 text-sm text-muted-foreground">
                   Products Available
                 </p>
@@ -151,7 +151,7 @@ export default function AboutPage() {
                 </p>
               </div>
               <div className="text-center">
-                <p className="text-4xl font-bold text-primary">10+</p>
+                <p className="text-4xl font-bold text-primary">20+</p>
                 <p className="mt-2 text-sm text-muted-foreground">
                   Years Experience
                 </p>
