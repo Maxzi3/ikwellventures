@@ -15,10 +15,11 @@ const outfit = Outfit({
 
 
 export const metadata: Metadata = {
-  title: "IKW Ventures | Genuine Volvo Spare Parts",
+  title: "IYKE WELL Ventures NIG LTD | Genuine Volvo Spare Parts",
   description:
     "Your trusted source for genuine Volvo spare parts. Quality engine parts, brake systems, suspension components and more.",
   keywords: [
+    "iyke Well Ventures Nig. Ltd",
     "Volvo parts",
     "volvo parts lagos",
     "genuine volvo spare parts",
@@ -26,25 +27,24 @@ export const metadata: Metadata = {
     "ladipo volvo parts",
     "volvo engine parts nigeria",
     "volvo brake parts lagos",
-    "volvo suspension parts",
     "volvo car parts mushin",
   ],
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_APP_URL ?? "https://ikwellventures.vercel.app/",
   ),
   openGraph: {
-    title: "IKW Ventures | Genuine Volvo Spare Parts",
+    title: "IYKE WELL Ventures NIG LTD | Genuine Volvo Spare Parts",
     description:
       "Your trusted source for genuine Volvo spare parts. Quality engine parts, brake systems, suspension components and more.",
     url:
       process.env.NEXT_PUBLIC_APP_URL ?? "https://ikwellventures.vercel.app/",
-    siteName: "IKW Ventures",
+    siteName: "IYKE WELL Ventures NIG LTD",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "IKW Ventures Open Graph Image",
+        alt: "IYKE WELL Ventures NIG LTD Open Graph Image",
       },
     ],
     locale: "en_NG",
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "IKW Ventures",
+    title: "IYKE WELL Ventures NIG LTD",
     description:
       "Your trusted source for genuine Volvo spare parts. Quality engine parts, brake systems, suspension components and more.",
     images: ["/og-image.png"],
