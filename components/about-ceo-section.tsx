@@ -15,7 +15,7 @@ const AboutCeoSection = () => {
               className="rounded-lg shadow-lg"
             />
             <div className="absolute -bottom-6 -left-6 bg-primary text-white p-6 rounded-lg hidden md:block">
-              <p className="font-bold text-2xl">20+ Years</p>
+              <p className="font-bold text-2xl">25+ Years</p>
               <p className="text-sm">Of Industry Leadership</p>
             </div>
           </div>
@@ -33,7 +33,7 @@ const AboutCeoSection = () => {
             </p>
             <div className="space-y-4 text-gray-600 leading-relaxed">
               <p>
-                With over 20 years of dedicated experience, IK (Ikechukwu)
+                With over 25 years of dedicated experience, IK (Ikechukwu)
                 brings a wealth of expertise and a proven track record to
                 IYKE WELL Ventures. As a visionary leader, he has guided the
                 company to new heights, establishing it as a cornerstone of
