@@ -8,7 +8,7 @@ const AboutCeoSection = () => {
           {/* Image Container */}
           <div className="relative">
             <Image
-              src="/ceo.jpg"
+              src="/ceo.png"
               alt="IK Well"
               width={500}
               height={500}
