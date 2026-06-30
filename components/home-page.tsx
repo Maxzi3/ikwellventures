@@ -8,6 +8,7 @@ import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import Image from "next/image";
+import { buildProductSlug } from "@/lib/slug";
 
 const WHATSAPP_NUMBER = "2348033056790";
 
@@ -195,36 +196,44 @@ export default function HomePage() {
                 featuredProducts.map((product) => (
                   <Card
                     key={product._id}
-                    className="group overflow-hidden border-border bg-card transition-shadow hover:shadow-lg"
+                    className="group overflow-hidden border-border bg-card transition-shadow hover:shadow-lg "
                   >
-                    <div className="aspect-4/3 overflow-hidden bg-muted">
-                      {product.image ? (
-                        <Image
-                          src={product.image}
-                          alt={product.name}
-                          width={400}
-                          height={400}
-                          className="h-full w-full object-cover transition-transform group-hover:scale-105"
-                        />
-                      ) : (
-                        <div className="flex h-full items-center justify-center bg-secondary">
-                          <Wrench className="h-16 w-16 text-muted-foreground/40" />
-                        </div>
-                      )}
-                    </div>
-                    <CardContent className="p-4">
-                      <p className="text-xs font-medium uppercase tracking-wider text-primary">
-                        {product.category?.name ?? "Uncategorized"}
-                      </p>
-                      <h3 className="mt-1 font-semibold text-foreground">
-                        {product.name}
-                      </h3>
-                      {product.partNumber && (
-                        <p className="mt-0.5 text-xs text-muted-foreground">
-                          Part No: {product.partNumber}
+                    <Link
+                      href={`/products/${buildProductSlug(product.name, product._id)}`}
+                    >
+                      <div className="aspect-4/3 overflow-hidden bg-muted">
+                        {product.image ? (
+                          <Image
+                            src={product.image}
+                            alt={product.name}
+                            width={400}
+                            height={400}
+                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                            className="h-full w-full object-cover transition-transform group-hover:scale-105"
+                          />
+                        ) : (
+                          <div className="flex h-full items-center justify-center bg-secondary">
+                            <Wrench className="h-16 w-16 text-muted-foreground/40" />
+                          </div>
+                        )}
+                      </div>
+                      <CardContent className="p-4">
+                        <p className="text-xs font-medium uppercase tracking-wider text-primary">
+                          {product.category?.name ?? "Uncategorized"}
                         </p>
-                      )}
-                    </CardContent>
+                        <h3 className="mt-1 font-semibold text-foreground">
+                          {product.name}
+                        </h3>
+                        {product.partNumber && (
+                          <p className="mt-0.5 text-xs text-muted-foreground">
+                            Part No: {product.partNumber}
+                          </p>
+                        )}
+                        <p className="mt-2 text-sm text-muted-foreground line-clamp-2">
+                          {product.description}
+                        </p>
+                      </CardContent>
+                    </Link>
                     <CardFooter className="flex items-center justify-between border-t border-border p-4">
                       <span
                         className={`text-sm font-medium ${product.inStock ? "text-green-600" : "text-destructive"}`}

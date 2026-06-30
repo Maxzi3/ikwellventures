@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import WhatsAppIcon from "@/components/WhatsAppIcon";
 import { Toaster } from "@/components/ui/sonner";
 import WhatsAppPopup from "@/components/WhatsAppPopup";
+import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 
 
 const outfit = Outfit({
@@ -29,6 +30,12 @@ export const metadata: Metadata = {
     "volvo brake parts lagos",
     "volvo car parts mushin",
   ],
+  other: {
+    "geo.placename": "Mushin, Lagos",
+    "geo.region": "NG-LA",
+    "geo.position": "6.5292;3.3492",
+  },
+
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_APP_URL ?? "https://ikwellventures.vercel.app/",
   ),
@@ -77,6 +84,7 @@ export default function RootLayout({
       className={cn("bg-background", "font-sans", outfit.variable)}
     >
       <body className="font-sans antialiased">
+        <LocalBusinessSchema />
         {children} <WhatsAppPopup /> <WhatsAppIcon />{" "}
         <Toaster position="top-right" />
       </body>
